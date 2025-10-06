@@ -3,17 +3,19 @@
 </script>
 
 <template>
-    <form>
-        <div class="form-floating mb-3">
+    <div class="row d-flex justify-content-center mt-5">
+        <form class="col-4">
+        <div class="form-floating mb-3 input">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <label for="floatingInput">Correo Electrónico</label>
         </div>
-        <div class="form-floating">
+        <div class="form-floating input">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+            <label for="floatingPassword">Contraseña</label>
         </div>
-        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-success mt-4">Ingresar</button>
     </form>
+    </div>
 </template>
 
 <style scoped>
