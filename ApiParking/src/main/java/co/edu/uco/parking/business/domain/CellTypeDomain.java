@@ -3,30 +3,26 @@ package co.edu.uco.parking.business.domain;
 import java.util.UUID;
 
 import co.edu.uco.parking.crosscuting.helper.BooleanHelper;
-import co.edu.uco.parking.crosscuting.helper.ObjectHelper;
 import co.edu.uco.parking.crosscuting.helper.TextHelper;
 import co.edu.uco.parking.crosscuting.helper.UUIDHelper;
 
-public final class CellDomain extends Domain{
+public final class CellTypeDomain extends Domain{
 	
 	private String name;
-	private CellTypeDomain cellType;
-	private ZoneDomain zone;
+	private String description;
 	private boolean isActive;
 	
-	public CellDomain() {
+	public CellTypeDomain() {
 		super(UUIDHelper.getUUIDHelper().getDefault());
 		setName(TextHelper.getDefault());
-		setCellType(new CellTypeDomain());
-		setZone(new ZoneDomain());
+		setDescription(TextHelper.getDefault());
 		setActive(BooleanHelper.getDefault());
 	}
 	
-	public CellDomain(final UUID id, final String name, final CellTypeDomain cellType, final ZoneDomain zone, final boolean isActive) {
+	public CellTypeDomain(final UUID id, final String name, final String description, final boolean isActive) {
 		super(id);
 		setName(name);
-		setCellType(cellType);
-		setZone(zone);
+		setDescription(description);
 		setActive(isActive);
 	}
 	
@@ -38,20 +34,12 @@ public final class CellDomain extends Domain{
 		this.name = TextHelper.getDefaultWithTrim(name);
 	}
 	
-	public CellTypeDomain getCellType() {
-		return cellType;
+	public String getDescription() {
+		return description;
 	}
 	
-	public void setCellType(CellTypeDomain cellType) {
-		this.cellType = ObjectHelper.getDefault(cellType, new CellTypeDomain());
-	}
-	
-	public ZoneDomain getZone() {
-		return zone;
-	}
-	
-	public void setZone(ZoneDomain zone) {
-		this.zone = ObjectHelper.getDefault(zone, new ZoneDomain());
+	public void setDescription(String description) {
+		this.description = TextHelper.getDefault(description);
 	}
 	
 	public boolean isActive() {
@@ -61,5 +49,5 @@ public final class CellDomain extends Domain{
 	public void setActive(boolean isActive) {
 		this.isActive = BooleanHelper.getDefault(isActive);
 	}
-	
+
 }
