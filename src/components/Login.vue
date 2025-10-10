@@ -3,6 +3,9 @@
 </script>
 
 <template>
+        <div>
+            <h1 class="title d-flex justify-content-center fst-italic">Inicio de Sesión</h1>
+        </div>
     <div class="row d-flex justify-content-center mt-5">
         <form class="col-4">
         <div class="form-floating mb-3 input">
