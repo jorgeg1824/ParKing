@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
+import type { Cell } from '../modules/interfaces/celda'
 
 const formRef = ref<HTMLFormElement | null>(null)
 
 // Datos del formulario (reactivo)
-const form = reactive({
-  tipoCelda: '',
-  zona: '',
-  numeroCelda: '',
-  estado: 'Activo',
+const form: Cell = reactive({
+  cellType: '',
+  zone: '',
+  name: '',
+  isActive: true,
 })
 
 // Errores del formulario
@@ -21,7 +22,7 @@ const errors = reactive({
 const sendForm = () => {
     if (formRef.value?.checkValidity()) {
         formRef.value?.reportValidity()
-        return alert(`✅ Celda registrada correctamente:\n- Tipo: ${form.tipoCelda}\n- Zona: ${form.zona}\n- Número: ${form.numeroCelda}\n- Estado: ${form.estado}`);
+        return alert(`✅ Celda registrada correctamente:\n- Tipo: ${form.cellType}\n- Zona: ${form.zone}\n- Número: ${form.name}\n- Estado: ${form.isActive}`);
     }
   // Si es válido, realiza el registro (puedes cambiar alert por lógica de envío)
   alert('Formulario inválido, por favor revise los campos.')
@@ -49,10 +50,10 @@ const formularioZona = [
         <div class="d-flex col-2 gap-2 justify-content-center mx-auto w-50 mt-3 fst-italic flex-column">
             <select
             class="form-select"
-            v-model="form.tipoCelda"
+            v-model="form.cellType"
             :class="{
                 'is-invalid': errors.tipoCelda,
-                'is-valid': !errors.tipoCelda && form.tipoCelda !== ''
+                'is-valid': !errors.tipoCelda && form.cellType !== ''
             }"
             >
             <option value="" disabled selected>Tipo de Celda</option>
@@ -67,10 +68,10 @@ const formularioZona = [
         <div class="d-flex col-2 gap-2 justify-content-center mx-auto w-50 mt-3 fst-italic flex-column">
             <select
             class="form-select"
-            v-model="form.zona"
+            v-model="form.zone"
             :class="{
                 'is-invalid': errors.zona,
-                'is-valid': !errors.zona && form.zona !== ''
+                'is-valid': !errors.zona && form.zone !== ''
             }"
             >
             <option value="" disabled selected>Zona Donde se Ubicará</option>
@@ -92,10 +93,10 @@ const formularioZona = [
             max="500"
             required
             pattern="^[0-9]+$"
-            v-model="form.numeroCelda"
+            v-model="form.name"
             :class="{
                 'is-invalid': errors.numeroCelda,
-                'is-valid': !errors.numeroCelda && form.numeroCelda !== ''
+                'is-valid': !errors.numeroCelda && form.name !== ''
             }"
             />
          <label class="text fst-italic" for="floatingInput">Número de la Celda</label>
@@ -116,7 +117,7 @@ const formularioZona = [
             <input
             class="form-control"
             type="text"
-            v-model="form.estado"
+            v-model="form.isActive"
             disabled
             />
         </div>
