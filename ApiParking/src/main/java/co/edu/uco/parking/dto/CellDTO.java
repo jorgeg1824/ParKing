@@ -8,22 +8,22 @@ public final class CellDTO {
 	private String name;
 	private CellTypeDTO cellType;
 	private ZoneDTO zone;
-	private boolean active;
+	private boolean isActive;
 	
 	public CellDTO() {
 		this.id = null;
 		this.name = "";
 		this.cellType = new CellTypeDTO();
 		this.zone = new ZoneDTO();
-		this.active = false;
+		this.isActive = false;
 	}
 	
-	public CellDTO(final UUID id, final String name, final CellTypeDTO cellType, final ZoneDTO zone, final boolean active) {
+	public CellDTO(final UUID id, final String name, final CellTypeDTO cellType, final ZoneDTO zone, final boolean isActive) {
 		this.id = id;
 		this.name = name;
 		this.cellType = cellType;
 		this.zone = zone;
-		this.active = active;
+		this.isActive = isActive;
 	}
 	
 	public UUID getId() {
@@ -59,11 +59,11 @@ public final class CellDTO {
 	}
 	
 	public boolean isActive() {
-		return active;
+		return isActive;
 	}
 	
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 }

@@ -2,29 +2,28 @@ package co.edu.uco.parking.dto;
 
 import java.util.UUID;
 
-public class ZoneDTO {
+public final class TicketStatusDTO {
 
     private UUID id;
     private String name;
     private String description;
-    private boolean isActive;
 
-    public ZoneDTO() {
+    public TicketStatusDTO() {
         super();
     }
 
-    public ZoneDTO(UUID id, String name, String description, boolean isActive) {
+    public TicketStatusDTO(final UUID id, final String name, final String description) {
+        super();
         this.id = id;
         this.name = name;
         this.description = description;
-        this.isActive = isActive;
     }
 
     public UUID getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(final UUID id) {
         this.id = id;
     }
 
@@ -32,7 +31,7 @@ public class ZoneDTO {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -40,15 +39,7 @@ public class ZoneDTO {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
     }
 }
